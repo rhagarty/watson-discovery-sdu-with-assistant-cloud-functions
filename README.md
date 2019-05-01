@@ -35,9 +35,21 @@
 
 * The `curl` command should work, if the params you entered are correct for the disco collection.
 
-## Call action from Assistant
+## Create new Assistant dialog skill
 
-* In the cell you want to trigger action, click on `Open JSON Editor`, and enter the following code snippet:
+For this code pattern, we will be using the `Custom Care Sample Skill` that comes with the service. Either duplicate it, or use the original to complete the following steps.
+
+### Add new intent
+
+Create a new intent that can detect when the user is asking about operating the thermostat.
+
+![](doc/source/images/create-assistant-intent.png)
+
+### Create new dialog node and add Cloud Functions action
+
+Insert a new dialog node to recognize the intent we just created.
+
+In the response section, click on `Open JSON Editor`, and enter the following code snippet:
 
 ![](doc/source/images/assistant-input-action-code.png)
 
@@ -98,17 +110,15 @@ These values are pulled from the `Functions` action panel, click on `API-KEY` wh
 
 > Note: the value before the `:` is the user, and everthing after is the password. Do not include the `:` in either value.
 
-## Add creds to application
+## Add Cloud Function creds to application
 
-* The `my_creds` needs to be passed to Assistant from your app, and needs to be placed in the Assistant context.
+* The Cloud Function credentials need to be assigned to the Assistant context variable name `my_creds`, and passed in from your application to the Watson Assisant API.
 
 ```javascript
-
     context.my_creds = {
       'user':'7a4d1a77-2429-xxxx-xxxx-a2b438e15bea',
       'password':'RVVEdpPFLAuuTwFXjjKujPKY0hUOEztxxxxxxxxxF7OdAm77Uc34GL2wQHDx'
     };
-
 ```
 
 ## Configure credentials
